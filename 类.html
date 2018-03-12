@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>类</title>
+		<script>
+			//var obj = {}
+			var obj = new Object()
+			obj.name = "zhanhgsan";
+			obj.sex ="nan";
+			obj.showName = function(){
+				alert(this.name);
+			}
+			
+			
+			//工厂模式
+			function CreateP(n,s){
+				this.name = n;
+				this.sex = s;
+			}
+			CreateP.prototype.sayHello = function(){
+				alert(this.name+"hello");
+			}
+			var p1 = new CreateP("张三","12");
+			console.log(p1)
+			p1.sayHello();
+			var p2 = new CreateP("李四","14");
+			p2.sayHello();
+			
+			
+			
+			//内置对象和自定义函数的最大区别就是new
+			//new后面的就是构造函数
+			//构造函数中的this指向的就是这个具体的对象
+			
+			var arr = new Array();
+			
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

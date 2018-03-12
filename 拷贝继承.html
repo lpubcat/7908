@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>拷贝继承</title>
+		<script>
+			function CreateP(name,sex){
+				this.name = name;
+				this.sex = sex;
+			}
+			CreateP.prototype.showName = function(){
+				alert(this.name);
+			}
+			var p1 = new CreateP("小明","男");
+			//p1.showName();
+			
+			
+			
+			
+			
+			function CreateS(name,sex,job){
+				CreateP.call(this,name,sex);
+				this.job = job;//明星类自己的
+			}
+			extend(CreateP.prototype,CreateS.prototype);
+			CreateS.prototype.showJob = function(){
+				alert(this.job);
+			}
+			var s1 = new CreateS("黄晓明","男","演员");
+			s1.showName();
+			s1.showJob();
+			function extend(obj1,obj2){
+				for(var attr in obj1){
+					obj2[attr] = obj1[attr];
+				}
+			}
+			
+			
+			var m ={
+				x:20
+			}
+			
+			var n = {
+				x:50,
+				sun:function(x,y){
+					console.log(this.x+y);
+				}
+			}
+			
+			n.sum(1,2)
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
